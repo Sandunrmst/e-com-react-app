@@ -1,0 +1,7 @@
+
+
+.product-swiper .swiper-pagination-bullet-active{
+    background-color: rgb(243, 100, 207);
+    width: 25px;
+    border-radius: 50px;
+}
