@@ -6,32 +6,32 @@ const categoryArr = [
   {
     imageUrl: prod1,
     title: 'Category Title 01',
-    categoryId: 'category-01'
+    categoryId: 'category1'
   },
   {
     imageUrl: prod1,
     title: 'Category Title 02',
-    categoryId: 'category-02'
+    categoryId: 'category2'
   },
   {
     imageUrl: prod1,
     title: 'Category Title 03',
-    categoryId: 'category-03'
+    categoryId: 'category3'
   },
   {
     imageUrl: prod1,
     title: 'Category Title 04',
-    categoryId: 'category-04'
+    categoryId: 'category4'
   },
   {
     imageUrl: prod1,
     title: 'Category Title 05',
-    categoryId: 'category-05'
+    categoryId: 'category5'
   },
   {
     imageUrl: prod1,
     title: 'Category Title 06',
-    categoryId: 'category-06'
+    categoryId: 'category6'
   }
 ]
 
@@ -45,9 +45,14 @@ const Category = () => {
         <h1 className='text-lg font-bold mt-2 ml-2 mb-3'>Main</h1>
 
         <div className='grid grid-cols-3 grid-rows-[auto] gap-5'>
-        {categoryArr.map(({imageUrl, title, categoryId}, index) => <CategoryUnitItem key={index} imageUrl={imageUrl} title={title} categoryId={categoryId}/>)}
+        {categoryArr.map(({imageUrl, title, categoryId}, index) => <CategoryUnitItem 
+          key={index} 
+          imageUrl={imageUrl} 
+          title={title} 
+          categoryId={categoryId}
+          />
+          )}
           
-
         </div>
 
       </section>
