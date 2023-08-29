@@ -13,8 +13,6 @@ let clicked = false;
 
 const Header = () => {
 
-  const [isSearch, setIsSearch] = useState(false)
-
   const logoRef = useRef()
   const searchBoxRef = useRef()
   const searchBoxContainerRef = useRef()

@@ -1,4 +1,4 @@
-import { IconButton } from '@mui/material';
+import { ListItemButton } from '@mui/material';
 import prod1 from '../../img/prod1.jpg'
 import { Link } from 'react-router-dom';
 
@@ -44,7 +44,7 @@ const Category = () => {
 
         <h1 className='text-lg font-bold mt-2 ml-2 mb-3'>Main</h1>
 
-        <div className='grid grid-cols-3 grid-rows-[auto] gap-5'>
+        <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-5'>
         {categoryArr.map(({imageUrl, title, categoryId}, index) => <CategoryUnitItem 
           key={index} 
           imageUrl={imageUrl} 
@@ -64,19 +64,30 @@ export default Category
 
 const CategoryUnitItem = ({imageUrl, title, categoryId}) => ( 
   <Link to={`/category/${categoryId}`}>
-  <IconButton sx={{color:'red'}}>
+ 
+  <ListItemButton 
+  sx={{
+    padding:0,
+    margin:0,
+    color: 'red',
+    boxShadow: "rgba(0,0,0,0.24) 0px 3px 8px",
+    borderRadius: '6px',
+  }}>
+    <div className="w-full rounded-md border-2 py-4 px-1 flex flex-col items-center">
+  
 
-  <div className="w-full rounded-md border-2 py-4 px-1 flex flex-col items-center">
+      <img 
+      src={imageUrl}
+      alt={title}
+      className='rounded-full w-[100px] h-[100px]'
+      />
+      <h2 className='text-xs text-black font-bold'> {title}</h2>
 
-    <img 
-    src={imageUrl}
-    alt={title}
-    className='rounded-full w-[100px] h-[100px]'
-    />
-    <h2 className='text-xs text-black font-bold'> {title}</h2>
-  </div>
 
-  </IconButton>
+    </div>
+
+  </ListItemButton>
+
   </Link>
 
 );

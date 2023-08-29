@@ -14,7 +14,7 @@ const Home = () => {
 
   return (
   
-  <div className="px-5 py-[100px] w-full h-screen overflow-y-scroll">
+  <div className="px-5 py-[100px] sm:px-12 md:px-[120px] w-full h-screen overflow-y-scroll">
     
     <Ads/>
     <Product title="Trending Products" rowsCount={1} slidesPerView={3} />

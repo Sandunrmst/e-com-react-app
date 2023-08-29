@@ -16,7 +16,7 @@ import './style.css'
 import 'swiper/css';
 import 'swiper/css/grid';
 import 'swiper/css/pagination';
-import { IconButton, Rating } from '@mui/material';
+import { ListItemButton , Rating } from '@mui/material';
 
 
 const Product = ({title, rowsCount, slidesPerView}) => {
@@ -62,7 +62,7 @@ const productList = [
     {
         imageUrl: prod2,
         price: '250',
-        prodTitle: 'Prod Title 02'
+        prodTitle: 'Prod Title 02Prod Title 06Prod Title 06'
     },
     {
         imageUrl: prod3,
@@ -82,7 +82,7 @@ const productList = [
     {
         imageUrl: prod6,
         price: '350',
-        prodTitle: 'Prod Title 06'
+        prodTitle: 'Prod Title 06Prod Title 06'
     },
     {
         imageUrl: prod7,
@@ -97,10 +97,14 @@ const productList = [
 ]
 
 const ProductUnit = ({imageUrl, price, prodTitle, id}) => (
-    <IconButton sx={{padding: "4px", borderRadius: "5px"}}>
+    <ListItemButton sx={{padding: "4px", borderRadius: "5px"}}>
     <div className="w-full mb-7">
         <img src={imageUrl} alt={`product_unit_${id}`} className="w-full object-cover h-[200px] md:h-[300px] md:object-cover"/>
-        <h3 className='text-lg font-semibold text-stone-900'>{prodTitle}</h3>
+        <h3 className='text-lg font-semibold text-stone-900'>
+            {String(prodTitle).substring(0,19)}
+            {String(prodTitle).length > 19 ? "..." : null}
+        </h3>
+
         <Rating
            name={imageUrl}
            value={3.3}
@@ -109,5 +113,5 @@ const ProductUnit = ({imageUrl, price, prodTitle, id}) => (
         />
         <h3 className="text-stone-900 font-bold text-lg">Rs.{price}</h3>
     </div>
-    </IconButton>
+    </ListItemButton>
 )
