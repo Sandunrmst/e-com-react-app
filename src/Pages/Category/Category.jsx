@@ -1,6 +1,8 @@
 import { ListItemButton } from '@mui/material';
 import prod1 from '../../img/prod1.jpg'
 import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import getDataFormCollection from '../../Utils/dataFetch/getDataFromCollection';
 
 const categoryArr = [
   {
@@ -36,6 +38,12 @@ const categoryArr = [
 ]
 
 const Category = () => {
+  const [categoryData, setCategoryData] = useState([])
+
+  useEffect(()=> {
+    getDataFormCollection("category", setCategoryData);
+  }, []);
+
   return (
     <div className="px-5 py-[100px] w-full h-screen overflow-y-scroll">
       <section style={{
@@ -45,9 +53,9 @@ const Category = () => {
         <h1 className='text-lg font-bold mt-2 ml-2 mb-3'>Main</h1>
 
         <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-5'>
-        {categoryArr.map(({imageUrl, title, categoryId}, index) => <CategoryUnitItem 
+        {categoryData?.map(({img, title, categoryId}, index) => <CategoryUnitItem 
           key={index} 
-          imageUrl={imageUrl} 
+          imageUrl={img} 
           title={title} 
           categoryId={categoryId}
           />
