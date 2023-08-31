@@ -3,39 +3,8 @@ import prod1 from '../../img/prod1.jpg'
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import getDataFormCollection from '../../Utils/dataFetch/getDataFromCollection';
+import Loading from '../../Componrnts/Loading/Loading';
 
-const categoryArr = [
-  {
-    imageUrl: prod1,
-    title: 'Category Title 01',
-    categoryId: 'category1'
-  },
-  {
-    imageUrl: prod1,
-    title: 'Category Title 02',
-    categoryId: 'category2'
-  },
-  {
-    imageUrl: prod1,
-    title: 'Category Title 03',
-    categoryId: 'category3'
-  },
-  {
-    imageUrl: prod1,
-    title: 'Category Title 04',
-    categoryId: 'category4'
-  },
-  {
-    imageUrl: prod1,
-    title: 'Category Title 05',
-    categoryId: 'category5'
-  },
-  {
-    imageUrl: prod1,
-    title: 'Category Title 06',
-    categoryId: 'category6'
-  }
-]
 
 const Category = () => {
   const [categoryData, setCategoryData] = useState([])
@@ -43,6 +12,11 @@ const Category = () => {
   useEffect(()=> {
     getDataFormCollection("category", setCategoryData);
   }, []);
+
+
+  if(categoryData.length===0){
+    return <Loading/>
+  }
 
   return (
     <div className="px-5 py-[100px] w-full h-screen overflow-y-scroll">

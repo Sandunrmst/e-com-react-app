@@ -15,9 +15,10 @@ const PaymentModel = (props, ref) => {
     }))
 
     const addData = ()=> {
-        setDoc(doc(db, "category", "category6"),{
-            title:"category title 06",
-            img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlnIGxmEWixIwC7kJlKMA762aI6y7LOGNDTw&usqp=CAU",
+        setDoc(doc(db, "category/category6/category6", "category_6item3"),{
+            title:"category6 title 03",
+            img:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8WQ-CgBKzpfdBlHsNCBXy3MKhTi6JBSAJ5SNqitJ0M7GUOc__fts5LdsFdt4AjM2zDoA&usqp=CAU",
+            rating:4.5
         })
         .then((docRef) => {
             console.log("Document written with Id: ", docRef);
