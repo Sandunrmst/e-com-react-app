@@ -11,7 +11,7 @@ import { useRef, useState } from 'react';
 
 let clicked = false;
 
-const Header = () => {
+const Header = ({paymentModelRef}) => {
 
   const logoRef = useRef()
   const searchBoxRef = useRef()
@@ -70,7 +70,7 @@ const Header = () => {
     </div>
 
     {/* header left  */}
-    <IconButton>
+    <IconButton onClick={()=> paymentModelRef.current.handleOpen()}>
       <div className='relative p-1'>
       <ShoppingCartOutlinedIcon className='cursor-pointer text-black'/>
       <div className='absolute top-[-1px] right-0 rounded-full bg-black text-white w-4 h-4 text-[10px] font-semibold flex justify-center items-center'>0</div>
