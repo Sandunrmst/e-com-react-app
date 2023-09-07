@@ -1,6 +1,8 @@
 
 import { useState } from 'react'
 import userRegister from '../../Utils/auth/register'
+import { signOut } from '@firebase/auth'
+import { auth } from '../../Firebase/firebase'
 
 const Login = () => {
 
@@ -41,10 +43,13 @@ const LoginComponent = ()=> {
   return(
     <div>
       <h1>Login</h1>
-<<<<<<< HEAD
-
-=======
->>>>>>> 3d69da173df555493ef74b934652794c7e03f62f
+      <button onClick={()=>{
+        signOut(auth).then(() => {
+          // Sign-out successful.
+        }).catch((error) => {
+          // An error happened.
+        });
+      }}>Log Out</button>
     </div>
   )
 }
