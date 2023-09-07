@@ -41,7 +41,10 @@ const LoginComponent = ()=> {
   return(
     <div>
       <h1>Login</h1>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 3d69da173df555493ef74b934652794c7e03f62f
     </div>
   )
 }
