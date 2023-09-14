@@ -49,7 +49,7 @@ const LoginComponent = ()=> {
     const password = e.target["password"].value
 
     // console.log(email, password)
-    userLogin(email, password) //call user login funtion
+    userLogin(email, password, navigate) //call user login funtion
   }
   return(
     <div>
