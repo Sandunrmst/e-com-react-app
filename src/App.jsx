@@ -14,7 +14,7 @@ function App() {
   const dispatch = useDispatch()
   const userData = useSelector(userSelector)
 
-  console.log(userData)
+  // console.log(userData)
 
   useEffect(()=>{
     const userCheck = onAuthStateChanged(auth, (user) => {

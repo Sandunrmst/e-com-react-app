@@ -4,6 +4,7 @@ import userRegister from '../../Utils/auth/register'
 import { signOut } from '@firebase/auth'
 import { auth } from '../../Firebase/firebase'
 import userLogin from '../../Utils/auth/login'
+import { useNavigate } from 'react-router-dom'
 
 const Login = () => {
 
@@ -39,7 +40,8 @@ export default Login
  */
 
 const LoginComponent = ()=> {
-    
+  
+  const navigate = useNavigate()
   const loginHandle = (e)=>{
     e.preventDefault()
 
