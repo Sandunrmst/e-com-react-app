@@ -14,3 +14,5 @@ const userLogin = (email, password)=>{
         const errorMessage = error.message;
     });
 }
+
+export default userLogin
