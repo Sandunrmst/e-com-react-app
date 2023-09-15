@@ -1,30 +1,31 @@
 import { useSelector } from "react-redux"
-import { Navigate, Outlet, useNavigate } from "react-router-dom"
+import { Outlet } from "react-router-dom"
 import { userSelector } from "../Store/ReduxSlice/userSlice"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
+import NoUrl from "../Pages/404/NoUrl"
 
 
 const AdminProtected = () => {
   const admin = false
 
     const userData = useSelector(userSelector)
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
     // console.log(user)
+
+    const [canView, setCanView] = useState()
 
     useEffect(()=>{
       if(userData.name){
         if(!(userData.name ==='default')){
-          if(!(userData.role === 'admin')){
-            navigate('/404')
+          if(userData.role === 'admin'){
+            setCanView(true)
           }
         }
 
-      }else{
-        navigate('/404')
       }
     },[userData])
 
-    return <Outlet />
+    return canView? <Outlet /> : <NoUrl/>
 
     // if(user.role){
     //     if(user.role === "admin"){

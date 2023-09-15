@@ -12,17 +12,17 @@ const Login = () => {
 
 
   return (
-    <div>
+    <div className='w-full h-screen flex flex-col items-center justify-center'>
 
       {select === "login" ? <LoginComponent/> : select === "register" ? <RegisterComponent/> : null}
       
       
       {/*change login or register*/}
       {select === "login" ? (
-        <p>Don't have an account? <span className='cursor-pointer' onClick={()=>setSelect('register')}>Sign Up</span></p>
+        <p className='mt-5'>Don't have an account? <span className='cursor-pointer' onClick={()=>setSelect('register')}>Sign Up</span></p>
       ): select === "register" ? (
 
-        <p>Already have an account <span className='cursor-pointer' onClick={()=>setSelect('login')}>Sign In</span></p>
+        <p className='mt-5'>Already have an account <span className='cursor-pointer' onClick={()=>setSelect('login')}>Sign In</span></p>
       ): null}
 
 
@@ -49,15 +49,17 @@ const LoginComponent = ()=> {
     const password = e.target["password"].value
 
     // console.log(email, password)
-    userLogin(email, password, navigate) //call user login funtion
+    //userLogin(email, password, navigate) //call user login funtion
   }
   return(
-    <div>
-      <h1>Login</h1>
-      <form onSubmit={loginHandle}>
-        <input type='email' name='email' placeholder='Enter your email'/>
-        <input type='password' name='password' placeholder='Enter your password'/>
-        <button type='submit'>Login</button>
+    <div className='w-[90%] p-5 shadow-lg flex flex-col items-center'>
+      <h1 className='text-3xl font-bold md-7'>Login</h1>
+      <form onSubmit={loginHandle} className='w-full flex flex-col items-center'>
+
+        <LoginInputBox type="email" name='email' label='Email' placeholder="Enter Your Email"/>
+        <LoginInputBox type="password" name='password' label='password' placeholder="Enter Your Password"/>
+
+        <button className='font-semibold bg-orange-300 hover:bg-orange-400 rounded-lg px-5 py-2' type='submit'>Login</button>
       </form>
     </div>
   )
@@ -108,4 +110,12 @@ const RegisterComponent = ()=>{
 
     </div>
   )
+}
+
+const LoginInputBox = ({inputType, name, label, placeholder})=>{
+
+  return <div className='relative w-[90%] p-3 border border-gray-400 rounded-[6px] m-3'>
+    <label className='absolute top-[-12px] left-2 bg-white px-2 font-medium'>{label}</label>
+    <input className='outline-none w-full' type={inputType} name={name} placeholder={placeholder}/>
+  </div>
 }

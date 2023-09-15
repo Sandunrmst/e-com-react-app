@@ -58,7 +58,7 @@ const router = createBrowserRouter([
     element:<Login />
   },
   {
-    path:'/404',
+    path:'/*',
     element:<NoUrl />
   },
   {
